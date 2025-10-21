@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shabir Tip Sek | Web Developer & Food Enthusiast</title>
+    <meta name="description" content="Welcome to my creative space! I'm Shabir Tip Sek - a passionate web developer, UI/UX designer, and food enthusiast. Explore my portfolio and recipes.">
+    <meta name="keywords" content="Shabir Tip Sek, Web Developer, UI/UX Designer, Food Enthusiast, Portfolio, Recipe Book, Web Design, Frontend Development">
+    <meta name="author" content="Shabir Tip Sek">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container header-inner">
+            <h1 class="site-title">Shabir Tip Sek</h1>
+            <nav class="navbar" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="recipe-book.html" class="active">Recipe Book</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="blog_page.html">Blog</a></li>
+                    <li><a href="SignUp.html"></a>SignUp</li>
+                    <li><a href="testmonial.html"></a>testmonies</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>My Recipe Book</h1>
+                <p>A collection of my favorite culinary creations and family recipes</p>
+            </div>
+        </section>
+
+        <section class="recipe-categories">
+            <div class="container">
+                <div class="category-filters">
+                    <button class="category-btn active" data-category="all">All Recipes</button>
+                    <button class="category-btn" data-category="main">Main Courses</button>
+                    <button class="category-btn" data-category="dessert">Desserts</button>
+                    <button class="category-btn" data-category="appetizer">Appetizers</button>
+                    <button class="category-btn" data-category="beverage">Beverages</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="recipes-grid">
+            <div class="container">
+                <div class="recipes-container">
+                    <div class="recipe-card" data-category="main">
+                        <div class="recipe-image">
+                            <div class="placeholder-image food">Spicy Chicken Curry</div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Spicy Chicken Curry</h3>
+                            <p class="recipe-description">A flavorful and aromatic chicken curry with traditional spices
+                                and herbs.</p>
+                            <div class="recipe-meta">
+                                <span class="cook-time">⏱ 45 mins</span>
+                                <span class="difficulty">Medium</span>
+                            </div>
+                            <a href="recipe-detail.html" class="recipe-link">View Recipe</a>
+                        </div>
+                    </div>
+
+                    <div class="recipe-card" data-category="dessert">
+                        <div class="recipe-image">
+                            <div class="placeholder-image food">Chocolate Lava Cake</div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Chocolate Lava Cake</h3>
+                            <p class="recipe-description">Decadent chocolate cake with a molten center, perfect for
+                                special occasions.</p>
+                            <div class="recipe-meta">
+                                <span class="cook-time">⏱ 30 mins</span>
+                                <span class="difficulty">Easy</span>
+                            </div>
+                            <a href="recipe-detail.html" class="recipe-link">View Recipe</a>
+                        </div>
+                    </div>
+
+                    <div class="recipe-card" data-category="appetizer">
+                        <div class="recipe-image">
+                            <div class="placeholder-image food">Garlic Herb Bread</div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Garlic Herb Bread</h3>
+                            <p class="recipe-description">Crispy bread topped with garlic, herbs, and melted cheese.</p>
+                            <div class="recipe-meta">
+                                <span class="cook-time">⏱ 20 mins</span>
+                                <span class="difficulty">Easy</span>
+                            </div>
+                            <a href="recipe-detail.html" class="recipe-link">View Recipe</a>
+                        </div>
+                    </div>
+
+                    <div class="recipe-card" data-category="beverage">
+                        <div class="recipe-image">
+                            <div class="placeholder-image food">Mango Lassi</div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Mango Lassi</h3>
+                            <p class="recipe-description">Refreshing yogurt-based drink with sweet mango and cardamom.
+                            </p>
+                            <div class="recipe-meta">
+                                <span class="cook-time">⏱ 10 mins</span>
+                                <span class="difficulty">Easy</span>
+                            </div>
+                            <a href="recipe-detail.html" class="recipe-link">View Recipe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 | Shabir Tip Sek | All rights reserved</p>
+            <div class="social">
+                <!-- Same social icons as index.html -->
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
