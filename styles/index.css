@@ -10,8 +10,8 @@
 body {
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     line-height: 1.6;
-    background-color: #f6f8fa;
-    color: #243b55;
+    background-color: var(--light-color);
+    color: var(--text-color);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -19,7 +19,7 @@ body {
 /* Header */
 header {
     display: block;
-    background: linear-gradient(90deg, #cfeff8 0%, #e6eef6 40%, #e0e6ea 100%);
+    background: var(--gradient);
     box-shadow: 0 2px 6px rgba(16,24,40,0.04);
     padding: 1rem 0;
 }
@@ -36,7 +36,7 @@ header {
 .site-title {
     font-size: 1.35rem;
     font-weight: 700;
-    color: #073763;
+    color: var(--primary-color);
     line-height: 1;
 }
 
@@ -59,7 +59,7 @@ main {
 
 
 main .container {
-    background: #ffffff;
+    background: var(--bg-primary);
     border-radius: 12px;
     padding: 2.25rem;
     box-shadow: 0 8px 24px rgba(16,24,40,0.06);
@@ -69,7 +69,7 @@ p {
     font-size: 1rem;
     letter-spacing: 0;
     line-height: 1.6;
-    color: #495064;
+    color: var(--text-light);
 }
 footer img {
     display: inline-block;
@@ -82,9 +82,9 @@ footer img {
 footer {
     text-align: center;
     padding: 1.25rem 0;
-    color: #6b7280;
+    color: var(--text-light);
     font-size: 0.95rem;
-    background: linear-gradient(to right,skyblue, skyblue);
+    background: var(--gradient);
 }
 
 /* layout utilities */
@@ -102,7 +102,7 @@ footer {
 .site-title {
     font-size: 1.5rem;
     letter-spacing: 1px;
-    color: #042a66;
+    color: var(--primary-color);
 }
 
 .navbar ul {
@@ -117,13 +117,13 @@ footer {
 .navbar a {
     padding: 0.5rem 0.85rem;
     border-radius: 8px;
-    color: #0b3b6b;
+    color: var(--primary-color);
     font-weight: 600;
     transition: background .18s ease, transform .12s ease;
 }
 
 .navbar a:hover {
-    background: rgba(11,59,107,0.08);
+    background: rgba(58,90,64,0.08);
     transform: translateY(-2px);
 }
 
@@ -152,23 +152,23 @@ footer {
 .hero-content h2 {
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
-    color: #073763;
+    color: var(--primary-color);
 }
 
 .btn {
     display: inline-block;
-    background: linear-gradient(180deg,#0b66df,#084ea7);
-    color: #fff;
+    background: var(--gradient);
+    color: white;
     padding: 0.6rem 1rem;
     border-radius: 8px;
     text-decoration: none;
-    box-shadow: 0 6px 18px rgba(11,102,223,0.14);
+    box-shadow: 0 6px 18px rgba(88,129,87,0.14);
     transition: transform .12s ease, box-shadow .12s ease;
 }
 
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(11,102,223,0.16);
+    box-shadow: 0 10px 30px rgba(88,129,87,0.16);
 }
 
 .social {

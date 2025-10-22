@@ -12,7 +12,314 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        :root {
+            --palette-1: #dad7cd;
+            --palette-2: #a3b18a;
+            --palette-3: #588157;
+            --palette-4: #3a5a40;
+            --palette-5: #344e41;
+            --text-color: #2c3e50;
+            --text-light: #7f8c8d;
+            --white: #ffffff;
+            --shadow: rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--palette-1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--palette-5);
+            color: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px var(--shadow);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .site-title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .navbar a {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .navbar a:hover {
+            background-color: var(--palette-4);
+            transform: translateY(-2px);
+        }
+
+        .navbar a.active {
+            background-color: var(--palette-3);
+            color: var(--white);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--palette-4) 0%, var(--palette-5) 100%);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            padding: 3rem 0;
+        }
+
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            border: 2px solid var(--palette-3);
+            background: var(--white);
+            color: var(--palette-3);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--palette-3);
+            color: var(--white);
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--palette-2);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: var(--palette-3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+            background: var(--palette-1);
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--palette-5);
+        }
+
+        .project-info p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            padding: 0.3rem 0.8rem;
+            background: var(--palette-2);
+            color: var(--palette-5);
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--palette-4);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 100%;
+            border: 2px solid var(--palette-4);
+        }
+
+        .project-link:hover {
+            background: var(--palette-5);
+            border-color: var(--palette-5);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--palette-5);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 24px;
+            height: 24px;
+            fill: var(--palette-2);
+            transition: all 0.3s ease;
+        }
+
+        .social a:hover .social-icon {
+            fill: var(--white);
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .navbar ul {
+                justify-content: center;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .page-header p {
+                font-size: 1rem;
+            }
+            
+            .projects-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .project-filters {
+                gap: 0.5rem;
+            }
+            
+            .filter-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar ul {
+                gap: 0.5rem;
+            }
+            
+            .navbar a {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+            
+            .page-header {
+                padding: 2rem 0;
+            }
+            
+            .project-info {
+                padding: 1rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -22,14 +329,15 @@
             <nav class="navbar" aria-label="Main navigation">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Me</a></li>
                     <li><a href="projects.html" class="active">Projects</a></li>
                     <li><a href="portfolio_gallery.html">Portfolio Gallery</a></li>
                     <li><a href="recipe-book.html">Recipe Book</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="blog_page.html">Blog</a></li>
                     <li><a href="signUp.html">Sign Up</a></li>
+                    <li><a href="pricing_table.html">Pricing</a></li>
                     <li><a href="testmonial.html">Testimonials</a></li>
+                    <li><a href="animated_buttons.html">Buttons</a></li>
                 </ul>
             </nav>
         </div>
@@ -53,14 +361,15 @@
                 </div>
 
                 <div class="projects-container">
+                    <!-- Project 1: Personal Portfolio -->
                     <div class="project-card" data-category="web">
                         <div class="project-image">
-                            <div class="placeholder-image">Portfolio Website</div>
+                            <!-- REPLACE THIS WITH YOUR ACTUAL IMAGE -->
+                            <img src="images/profile 1.png" alt="Personal Portfolio Website">
                         </div>
                         <div class="project-info">
                             <h3>Personal Portfolio</h3>
-                            <p>A responsive portfolio website showcasing my work and skills with modern design
-                                principles.</p>
+                            <p>A responsive portfolio website showcasing my work and skills with modern design principles.</p>
                             <div class="project-tags">
                                 <span class="tag">HTML</span>
                                 <span class="tag">CSS</span>
@@ -70,14 +379,15 @@
                         </div>
                     </div>
 
+                    <!-- Project 2: E-commerce Dashboard -->
                     <div class="project-card" data-category="design">
                         <div class="project-image">
-                            <div class="placeholder-image">E-commerce UI</div>
+                            <!-- REPLACE THIS WITH YOUR ACTUAL IMAGE -->
+                            <img src="https://images.unsplash.com/photo-1634704784915-aacf363b021f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870" alt="E-commerce Dashboard Design">
                         </div>
                         <div class="project-info">
                             <h3>E-commerce Dashboard</h3>
-                            <p>User interface design for an e-commerce platform with focus on user experience and
-                                conversion.</p>
+                            <p>User interface design for an e-commerce platform with focus on user experience and conversion.</p>
                             <div class="project-tags">
                                 <span class="tag">Figma</span>
                                 <span class="tag">UI Design</span>
@@ -87,18 +397,74 @@
                         </div>
                     </div>
 
+                    <!-- Project 3: Digital Recipe Collection -->
                     <div class="project-card" data-category="personal">
                         <div class="project-image">
-                            <div class="placeholder-image">Recipe App</div>
+                            <!-- REPLACE THIS WITH YOUR ACTUAL IMAGE -->
+                            <img src="https://images.unsplash.com/photo-1651552054774-13c84b4cedb5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXRodW1ibmFpbHx8TlR1UHVaTjJaSzR8fGVufDB8fHx8fA%3D%3D%2C%5Bobject+Object%5D&auto=format&fit=crop&q=60&w=294&dpr=1&h=294" alt="Digital Recipe Collection App">
                         </div>
                         <div class="project-info">
                             <h3>Digital Recipe Collection</h3>
-                            <p>A web application for organizing and sharing recipes with search and categorization
-                                features.</p>
+                            <p>A web application for organizing and sharing recipes with search and categorization features.</p>
                             <div class="project-tags">
                                 <span class="tag">React</span>
                                 <span class="tag">Firebase</span>
                                 <span class="tag">CSS</span>
+                            </div>
+                            <a href="#" class="project-link">View Project</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Restaurant Website -->
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <!-- REPLACE THIS WITH YOUR ACTUAL IMAGE -->
+                            <img src="https://plus.unsplash.com/premium_photo-1681841594224-ad729a249113?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXRodW1ibmFpbHx8MzExMDY5NXx8ZW58MHx8fHx8%2C%5Bobject+Object%5D&auto=format&fit=crop&q=60&w=126&dpr=1&h=147" alt="Restaurant Website">
+                        </div>
+                        <div class="project-info">
+                            <h3>Restaurant Website</h3>
+                            <p>Fully responsive restaurant website with online menu, reservation system, and contact form.</p>
+                            <div class="project-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">PHP</span>
+                            </div>
+                            <a href="#" class="project-link">View Project</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: Mobile App Design -->
+                    <div class="project-card" data-category="design">
+                        <div class="project-image">
+                            <!-- REPLACE THIS WITH YOUR ACTUAL IMAGE -->
+                            <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXRodW1ibmFpbHx8NDkyMDA5Nnx8ZW58MHx8fHx8%2C%5Bobject+Object%5D&auto=format&fit=crop&q=60&w=294&dpr=1&h=294" alt="Mobile App Design">
+                        </div>
+                        <div class="project-info">
+                            <h3>Fitness Tracker App</h3>
+                            <p>Mobile app UI/UX design for a fitness tracking application with workout plans and progress monitoring.</p>
+                            <div class="project-tags">
+                                <span class="tag">Figma</span>
+                                <span class="tag">UI Design</span>
+                                <span class="tag">Mobile</span>
+                            </div>
+                            <a href="#" class="project-link">View Design</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: Blog Platform -->
+                    <div class="project-card" data-category="personal">
+                        <div class="project-image">
+                            <!-- REPLACE THIS WITH YOUR ACTUAL IMAGE -->
+                            <img src="images/capture2.png" alt="Blog Platform">
+                        </div>
+                        <div class="project-info">
+                            <h3>Personal Blog Platform</h3>
+                            <p>A custom blog platform with content management system and responsive design.</p>
+                            <div class="project-tags">
+                                <span class="tag">WordPress</span>
+                                <span class="tag">PHP</span>
+                                <span class="tag">MySQL</span>
                             </div>
                             <a href="#" class="project-link">View Project</a>
                         </div>
@@ -112,10 +478,63 @@
         <div class="container">
             <p>&copy; 2025 | Shabir Tip Sek | All rights reserved</p>
             <div class="social">
-                <!-- Same social icons as index.html -->
+                <a href="https://www.whatsapp.com" aria-label="Whatsapp">
+                    <svg class="social-icon" viewBox="0 0 24 24">
+                        <path
+                            d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.96-1.38-.92-2.61.05-1.22.69-1.8.95-2.04.24-.26.51-.29.68-.26h.47c.15 0 .36-.06.55.45l.69 1.87c.06.13.1.28.01.44l-.27.41-.39.42c-.12.12-.26.25-.12.5.12.26.62 1.09 1.32 1.78.91.88 1.71 1.17 1.95 1.3.24.14.39.12.54-.04l.81-.94c.19-.25.35-.19.58-.11l1.67.88M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10c-1.97 0-3.8-.57-5.35-1.55L2 22l1.55-4.65A9.969 9.969 0 0 1 2 12 10 10 0 0 1 12 2m0 2a8 8 0 0 0-8 8c0 1.72.54 3.31 1.46 4.61L4.5 19.5l2.89-.96A7.95 7.95 0 0 0 12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8z" />
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com" aria-label="Instagram">
+                    <svg class="social-icon" viewBox="0 0 24 24">
+                        <path
+                            d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
+                    </svg>
+                </a>
+                <a href="https://www.twitter.com" aria-label="Twitter">
+                    <svg class="social-icon" viewBox="0 0 24 24">
+                        <path
+                            d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.20-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" />
+                    </svg>
+                </a>
             </div>
         </div>
     </footer>
-</body>
 
+    <script>
+        // Project filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Filter projects
+                    projectCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 50);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
 </html>
